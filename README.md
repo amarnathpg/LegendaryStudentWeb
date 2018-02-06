@@ -1,0 +1,2 @@
+# LegendaryStudentWeb
+Client side application
