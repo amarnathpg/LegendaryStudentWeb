@@ -1024,7 +1024,11 @@
     <Content Include="Views\forgot-password.html" />
     <Content Include="Views\index.html" />
     <Content Include="Views\login.html" />
+    <Content Include="Views\mocktestdetails.html" />
+    <Content Include="Views\onlinetestdetails.html" />
     <Content Include="Views\register.html" />
+    <Content Include="Views\schooldetails.html" />
+    <Content Include="Views\studentdetails.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
