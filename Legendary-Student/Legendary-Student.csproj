@@ -1026,6 +1026,7 @@
     <Content Include="Views\login.html" />
     <Content Include="Views\mocktestdetails.html" />
     <Content Include="Views\onlinetestdetails.html" />
+    <Content Include="Views\professor.html" />
     <Content Include="Views\register.html" />
     <Content Include="Views\schooldetails.html" />
     <Content Include="Views\studentdetails.html" />
