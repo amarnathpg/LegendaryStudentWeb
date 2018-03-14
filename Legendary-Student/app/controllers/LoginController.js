@@ -1,20 +1,34 @@
 ﻿'use strict';
 angular
-    .module('legendaryStudentApp',[])
+    .module('legendaryStudentApp', [])
     .controller('LoginController', function ($scope) {
 
         // Set the default value of inputType
         $scope.inputType = 'password';
+        $scope.passwordIcons = "glyphicon glyphicon-eye-close";
 
         // Hide & show password function
         $scope.hideShowPassword = function () {
-            if ($scope.inputType == 'password')
+            if ($scope.inputType == 'password') {
                 $scope.inputType = 'text';
-            else
+                $scope.passwordIcons = "glyphicon glyphicon-eye-open";
+            }
+            else {
                 $scope.inputType = 'password';
+                $scope.passwordIcons = "glyphicon glyphicon-eye-close";
+            }
         };
 
-        
+        $scope.login = function () {
+            if ($scope.email && $scope.pwd) {
+
+            }
+        }
+
+        function TemplateController($scope) {
+            $scope.myTemplate = 'Template1';
+        }
+
 
         //// Populate watchlists for dynamic nav links
         //$scope.watchlists = WatchlistService.query();

@@ -1,0 +1,236 @@
+﻿<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">IISO Foundation</a>
+    </li>
+    <li class="breadcrumb-item active">IISO Admin</li>
+</ol>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Subject
+    </div>
+    <div class="card-body">
+        <div class="form-inline">
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.saclassID" placeholder="Select Class">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control" ng-model="professor.sasubjectName" placeholder="Subject">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="professor.AddSubject()">Add</button>
+        </div>
+        <hr />
+        <div class="form-inline">
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.suclassID" ng-change="professor.GetSubject()">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.susubjectID" ng-change="professor.GetSubjectName()">
+                    <option ng-repeat="subject in professor.subjectsArray.data" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control" ng-model="professor.sutxtsubject" placeholder="Subject">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="professor.UpdateSubject()">Update</button>
+        </div>
+        <hr />
+        <div class="form-inline">
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.sdclassID" ng-change="professor.GetDeleteSubject()">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.sdsubjectID">
+                    <option ng-repeat="subject in professor.subjectsArray.data" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="professor.DeleteSubject()">Delete</button>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Concept
+    </div>
+    <div class="card-body">
+        <div class="form-inline">
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.caclassID" ng-change="professor.GetSubject()">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.casubjectID">
+                    <option ng-repeat="subject in professor.subjectsArray.data" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control" ng-model="professor.caconceptName" id="inputPassword2" placeholder="Concept">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="professor.AddConcept()">Add</button>
+        </div>
+        <hr />
+        <div class="form-inline">
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.cuclassID" ng-change="professor.GetSubjectsConcept()">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.cusubjectID" ng-change="professor.GetConcept()">
+                    <option ng-repeat="subject in professor.subjectsArray.data" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.cuconceptID" ng-change="professor.GetConceptName()">
+                    <option ng-repeat="concept in professor.conceptsArray.data" value="{{concept.conceptID}}">{{concept.conceptName}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <input type="text" class="form-control" ng-model="professor.cuconceptName" id="inputPassword2" placeholder="Concept">
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="professor.UpdateConcept()">Update</button>
+        </div>
+        <hr />
+        <div class="form-inline">
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.cdclassID" ng-change="professor.GetSubjectConceptDelete()">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.cdsubjectID" ng-change="professor.GetConcept()">
+                    <option ng-repeat="subject in professor.subjectsArray.data" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-3">
+                <select class="form-control" ng-model="professor.cdconceptID">
+                    <option ng-repeat="concept in professor.conceptsArray.data" value="{{concept.conceptID}}">{{concept.conceptName}}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-click="professor.DeleteConcept()">Delete</button>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Question
+    </div>
+    <div class="card-body">
+        <div class="form-row">
+            <div class="col">
+                <select class="form-control" ng-model="professor.qclassID" ng-change="professor.qGetSubject()">
+                    <option ng-repeat="class in professor.classesArray.data" value="{{class.classID}}">{{class.classNumber}}</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-control" ng-model="professor.qsubjectID" ng-change="professor.qGetConcept()">
+                    <option ng-repeat="subject in professor.subjectsArray.data" value="{{subject.subjectID}}">{{subject.subjectName}}</option>
+                </select>
+            </div>
+            <div class="col">
+                <select class="form-control" ng-model="professor.qconceptID" ng-change="professor.qGetQuestions()">
+                    <option ng-repeat="concept in professor.conceptsArray.data" value="{{concept.conceptID}}">{{concept.conceptName}}</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Option C</th>
+                        <th>Option D</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="question in professor.questionsArray.data">
+                        <td><input type="checkbox" ng-model="question{{question.questionID}}" /></td>
+                        <td>{{question.questionName}}</td>
+                        <td ng-repeat="option in question.options">{{option.optionName}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Option C</th>
+                        <th>Option D</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <hr />
+        <div>
+
+            <div class="form-group">
+                <textarea class="form-control" ng-model="professor.txtQuestion" id="exampleFormControlTextarea1" rows="3" placeholder="Question"></textarea>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="professor.txtOptionA" placeholder="Option A (Tick the Answer)">
+                        <span class="input-group-addon">
+                            <input type="checkbox" ng-model="professor.chkAnswerA" aria-label="Checkbox for following text input">
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="professor.txtOptionB" placeholder="Option B (Tick the Answer)">
+                        <span class="input-group-addon">
+                            <input type="checkbox" ng-model="professor.chkAnswerB" aria-label="Checkbox for following text input">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="professor.txtOptionC" placeholder="Option C (Tick the Answer)">
+                        <span class="input-group-addon">
+                            <input type="checkbox" ng-model="professor.chkAnswerC" aria-label="Checkbox for following text input">
+                        </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="professor.txtOptionD" placeholder="Option D (Tick the Answer)">
+                        <span class="input-group-addon">
+                            <input type="checkbox" ng-model="professor.chkAnswerD" aria-label="Checkbox for following text input">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group" role="group">
+                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Submit
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <a class="dropdown-item" href="#" ng-click="professor.AddQuestion()">Add</a>
+                    <a class="dropdown-item" href="#" ng-click="professor.UpdateQuestion()">Update</a>
+                    <a class="dropdown-item" href="#" ng-click="professor.DeleteQuestion()">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>

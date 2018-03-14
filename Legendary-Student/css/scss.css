@@ -1,0 +1,41 @@
+// SCSS derrived from Bootstrap 3 Form Control Feedback.
+
+/* TODO: import Bootstrap4 variables */
+$input-height-base: 38px; //TODO: use imported Bootstrap 4 variables.
+$line-height-computed:20px; //TODO: use imported Bootstrap 4 variables.
+
+.has-feedback-custom {
+  // Enable absolute positioning
+  position: relative;
+
+  // Ensure icons don't overlap text
+  .form-control {
+    padding-right: ($input-height-base * 1.25);
+  }
+}
+
+// Feedback icon (requires .glyphicon classes) //Note: Did not look in to the effect of .glyphicon.
+.form-control-feedback-custom {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2; // Ensure icon is above input groups
+  display: block;
+  width: $input-height-base;
+  height: $input-height-base;
+  line-height: $input-height-base;
+  text-align: center;
+  pointer-events: none;
+}
+
+// Reposition feedback icon if input has visible label above
+.has-feedback-custom label {
+
+  & ~ .form-control-feedback-custom {
+    //top: ($line-height-computed + 5); // Height of the `label` and its margin
+    top: 32px; //TODO: compute with bootstrap 4 variables.
+  }
+  &.sr-only ~ .form-control-feedback-custom {
+    top: 0;
+  }
+}
